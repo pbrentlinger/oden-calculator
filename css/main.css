@@ -261,3 +261,56 @@ textarea {
   }
 }
 
+body {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(4, 1fr);
+  height: 100vh;
+  background-color: #b3d4fc;
+}
+
+.cal {
+  place-self: center;
+  grid-column-start: 2;
+  grid-row-start: 2;
+  grid-row-end: 2;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 10px;
+  background-color: brown;
+  height: 100%;
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 2px 2px 5px 1px rgba(0, 0, 0, 0.2); ;
+}
+
+.fullwidth {
+  grid-column-end: span 4;
+  background-color: white;
+  padding: 0 10px;
+}
+
+#total {
+  font-weight: bold;
+  font-size: larger;
+  padding-top: 10px;
+  text-align: right;
+}
+
+#equation {
+  font-weight: lighter;
+  font-size: small;
+  color: #cccccc;
+}
+
+.wide {
+  grid-column-end: span 2;
+}
+
+.num {
+
+}
+
+.operator {
+
+}

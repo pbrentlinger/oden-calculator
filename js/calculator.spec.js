@@ -1,5 +1,4 @@
 const calculator = require('./calculator');
-const {multiply} = require("./calculator");
 
 describe('add', () => {
   test('adds 0 and 0', () => {

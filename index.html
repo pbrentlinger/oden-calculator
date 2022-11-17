@@ -27,7 +27,45 @@
 <body>
 
   <!-- Add your site or application content here -->
-  <p>Calculator Pending...123456</p>
+  <div class="cal">
+    <div class="display fullwidth">
+      <div id="total">0</div>
+      <div id="equation">0</div>
+    </div>
+    <button onclick="backClick(this.value)" value="back"> 🔙 </button>
+    <button onclick="clearClick(this.value)" class="wide" value="clear">Clear</button>
+    <button onclick="operateClick(this.value)" class="operator" value="divide">/</button>
+    <button onclick="numClick(this.value)" class="num" value="7">7</button>
+    <button onclick="numClick(this.value)" class="num" value="8">8</button>
+    <button onclick="numClick(this.value)" class="num" value="9">9</button>
+    <button onclick="operateClick(this.value)" class="operator" value="multiply">*</button>
+    <button onclick="numClick(this.value)" class="num" value="4">4</button>
+    <button onclick="numClick(this.value)" class="num" value="5">5</button>
+    <button onclick="numClick(this.value)" class="num" value="6">6</button>
+    <button onclick="operateClick(this.value)" class="operator" value="subtract">-</button>
+    <button onclick="numClick(this.value)" class="num" value="1">1</button>
+    <button onclick="numClick(this.value)" class="num" value="2">2</button>
+    <button onclick="numClick(this.value)" class="num" value="3">3</button>
+    <button onclick="operateClick(this.value)" class="operator" value="add">+</button>
+    <button onclick="numClick(this.value)" class="wide num" value="0">0</button>
+    <button onclick="numClick(this.value)" class="num" value=".">.</button>
+    <button onclick="operateClick(this.value)" class="operator" value="equals">=</button>
+
+  </div>
+  <script>
+    let currentNumber = '';
+    const numClick = function (value) {
+      currentNumber += value;
+      console.log(currentNumber);
+    }
+
+    const clearClick = function () {
+      currentNumber = '';
+      console.log(currentNumber);
+    }
+
+
+  </script>
 
   <script src="js/vendor/modernizr-3.11.2.min.js"></script>
   <script src="js/plugins.js"></script>
