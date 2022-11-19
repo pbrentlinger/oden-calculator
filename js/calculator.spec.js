@@ -12,6 +12,14 @@ describe('add', () => {
   test('adds positive numbers', () => {
     expect(calculator.add(2,6)).toBe(8);
   });
+
+  test('pass in string numbers and still work', function () {
+    expect(calculator.add('1', '2')).toBe(3);
+  });
+
+  test('pass in letters and get error', function () {
+    expect(calculator.add('i', 'n')).error;
+  });
 });
 
 describe('subtract', () => {
@@ -26,11 +34,27 @@ describe('subtract', () => {
   test('subtract greater from lesser', () => {
     expect(calculator.subtract(4, 10)).toBe(-6)
   });
+
+  test('pass in string numbers and still work', function () {
+    expect(calculator.subtract('2', '1')).toBe(1);
+  });
+
+  test('pass in letters and get error', function () {
+    expect(calculator.add('i', 'n')).error;
+  });
 });
 
 describe('multiply', () => {
   test('multiplies two numbers', () => {
     expect(calculator.multiply(4, 2)).toBe(8);
+  });
+
+  test('pass in string numbers and still work', function () {
+    expect(calculator.multiply('3', '2')).toBe(6);
+  });
+
+  test('pass in letters and get error', function () {
+    expect(calculator.add('i', 'n')).error;
   });
 });
 
@@ -51,29 +75,35 @@ describe('divide',() => {
     expect(calculator.divide(4, -2)).toBe(-2);
   });
 
-  test('divide by zero', () => {
-    expect(calculator.divide(4, 0)).toBe('Error, Cannot Divide by Zero');
+  test('pass in string numbers and still work', function () {
+    expect(calculator.divide('8', '2')).toBe(4);
   });
+
+  test('div by 0', function () {
+    expect(calculator.divide(10, 0)).error;
+  });
+
 });
+
 
 describe('operate', () => {
   test('add operators', () => {
-    expect(calculator.operate('add', 2, 2)).toBe(4);
+    expect(calculator.operate('+', 2, 2)).toBe(4);
   });
 
   test('subtract operators', () => {
-    expect(calculator.operate('subtract', 4, 2)).toBe(2);
+    expect(calculator.operate('-', 4, 2)).toBe(2);
   });
 
   test('multiply operators', () => {
-    expect(calculator.operate('multiply', 3, 2)).toBe(6);
+    expect(calculator.operate('*', 3, 2)).toBe(6);
   });
 
   test('divide operators', () => {
-    expect(calculator.operate('divide', 12, 4)).toBe(3);
+    expect(calculator.operate('/', 12, 4)).toBe(3);
   });
 
   test('invalid operator', () => {
-    expect(calculator.operate('power')).toBe('invalid function');
+    expect(calculator.operate('^')).toBe('invalid operation');
   });
 });
