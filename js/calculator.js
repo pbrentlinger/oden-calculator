@@ -35,7 +35,7 @@ const divide = function (n, d) {
     n = parseInt(n);
     d = parseInt(d);
     if (d === 0) {
-      throw new Error('Are your trying to open a black hole, because divide by 0 is how we get black holes')
+      throw new Error('Are your trying to open a black hole, because divide by 0 is how we get black holes');
     }
     return n / d;
   } catch (e) {
