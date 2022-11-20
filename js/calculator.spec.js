@@ -17,6 +17,10 @@ describe('add', () => {
     expect(calculator.add('1', '2')).toBe(3);
   });
 
+  test('pass in decimals and get decimal results back', function (){
+    expect(calculator.add(1.5, 1.75)).toBe(3.25);
+  });
+
   test('pass in letters and get error', function () {
     expect(calculator.add('i', 'n')).error;
   });
@@ -39,6 +43,10 @@ describe('subtract', () => {
     expect(calculator.subtract('2', '1')).toBe(1);
   });
 
+  test('pass in decimals and get decimal results back', function (){
+    expect(calculator.subtract(10.5, 1.25)).toBe(9.25);
+  });
+
   test('pass in letters and get error', function () {
     expect(calculator.add('i', 'n')).error;
   });
@@ -51,6 +59,10 @@ describe('multiply', () => {
 
   test('pass in string numbers and still work', function () {
     expect(calculator.multiply('3', '2')).toBe(6);
+  });
+
+  test('pass in decimals and get decimal results back', function (){
+    expect(calculator.multiply(1.5, 1.75)).toBe(2.625);
   });
 
   test('pass in letters and get error', function () {
@@ -73,6 +85,10 @@ describe('divide',() => {
 
   test('divide positive by negative', () => {
     expect(calculator.divide(4, -2)).toBe(-2);
+  });
+
+  test('pass in decimals and get decimal results back', function (){
+    expect(calculator.divide(10.75, 2.5)).toBe(4.3);
   });
 
   test('pass in string numbers and still work', function () {

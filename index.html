@@ -20,94 +20,97 @@
   <link rel="stylesheet" href="css/main.css">
 
   <meta name="theme-color" content="#fafafa">
-<!--  For local development refreshing -->
+  <!--  For local development refreshing -->
   <script type="text/javascript" src="https://livejs.com/live.js"></script>
 </head>
 
 <body>
 
-  <!-- Add your site or application content here -->
-  <div class="cal">
-    <div class="display fullwidth">
-      <div id="total">0</div>
-      <div id="equation">0</div>
-    </div>
-    <button onclick="backClick()" value="back"> 🔙 </button>
-    <button onclick="clearClick()" class="wide" value="clear">Clear</button>
-    <button onclick="operateClick(this.value)" class="operator" value="divide">/</button>
-    <button onclick="numClick(this.value)" class="num" value="7">7</button>
-    <button onclick="numClick(this.value)" class="num" value="8">8</button>
-    <button onclick="numClick(this.value)" class="num" value="9">9</button>
-    <button onclick="operateClick(this.value)" class="operator" value="multiply">*</button>
-    <button onclick="numClick(this.value)" class="num" value="4">4</button>
-    <button onclick="numClick(this.value)" class="num" value="5">5</button>
-    <button onclick="numClick(this.value)" class="num" value="6">6</button>
-    <button onclick="operateClick(this.value)" class="operator" value="subtract">-</button>
-    <button onclick="numClick(this.value)" class="num" value="1">1</button>
-    <button onclick="numClick(this.value)" class="num" value="2">2</button>
-    <button onclick="numClick(this.value)" class="num" value="3">3</button>
-    <button onclick="operateClick(this.value)" class="operator" value="add">+</button>
-    <button onclick="numClick(this.value)" class="wide num" value="0">0</button>
-    <button onclick="numClick(this.value)" class="num" value=".">.</button>
-    <button onclick="operateClick(this.value)" class="operator" value="equals">=</button>
+<!-- Add your site or application content here -->
+<div class="cal">
+  <div id="display" class="display fullwidth">
+    0
+  </div>
+  <button onclick="backClick()" value="back"> 🔙</button>
+  <button onclick="clearClick()" class="wide" value="clear">Clear</button>
+  <button onclick="operateClick(this.value)" class="operator" value="/">/</button>
+
+  <button onclick="numClick(this.value)" class="num" value="7">7</button>
+  <button onclick="numClick(this.value)" class="num" value="8">8</button>
+  <button onclick="numClick(this.value)" class="num" value="9">9</button>
+  <button onclick="operateClick(this.value)" class="operator" value="*">*</button>
+
+  <button onclick="numClick(this.value)" class="num" value="4">4</button>
+  <button onclick="numClick(this.value)" class="num" value="5">5</button>
+  <button onclick="numClick(this.value)" class="num" value="6">6</button>
+  <button onclick="operateClick(this.value)" class="operator" value="-">-</button>
+
+  <button onclick="numClick(this.value)" class="num" value="1">1</button>
+  <button onclick="numClick(this.value)" class="num" value="2">2</button>
+  <button onclick="numClick(this.value)" class="num" value="3">3</button>
+  <button onclick="operateClick(this.value)" class="operator" value="+">+</button>
+
+  <button onclick="numClick(this.value)" class="wide num" value="0">0</button>
+  <button onclick="numClick(this.value)" class="num" value=".">.</button>
+  <button onclick="operateClick(this.value)" class="operator" value="=">=</button>
 
   </div>
   <script>
-    let currentNumber = '0';
-    let isLastEventOperaration = false;
-    let currentOperation = '';
-
-    const updateTotal = function () {
-      const total = document.getElementById('total');
-      total.textContent=currentNumber;
-
-    //  When the lastEvent was not an operation then we should update the total with the current number
-      // When the last Event IS an operation we should
-    }
-
-    const updateEquation = function (value) {
-      const equation = document.getElementById('equation');
-      equation.insertAdjacentText('beforeend', value);
-    }
-
-    const numClick = function (value) {
-      if (isLastEventOperaration === true ) {
-        currentNumber = value;
-      } else {
-        if (currentNumber === '0') {
-          currentNumber = currentNumber.slice(0, -1) + value;
-        } else {
-          currentNumber += value;
-        }
-      }
-      isLastEventOperaration = false;
-      updateTotal();
-    }
-
-    const clearClick = function () {
-      currentNumber = '0';
-      updateTotal();
-    }
-
-    const backClick = function () {
-      if (currentNumber.length === 1) {
-        currentNumber = '0';
-      } else {
-        currentNumber = currentNumber.slice(0, -1);
-      }
-      updateTotal();
-    }
-
-    const operateClick = function (op) {
-      currentOperation = op;
-      isLastEventOperaration = true;
-    }
+    // let currentNumber = '0';
+    // let isLastEventOperaration = false;
+    // let currentOperation = '';
+    //
+    // const updateTotal = function () {
+    //   const total = document.getElementById('total');
+    //   total.textContent=currentNumber;
+    //
+    // //  When the lastEvent was not an operation then we should update the total with the current number
+    //   // When the last Event IS an operation we should
+    // }
+    //
+    // const updateEquation = function (value) {
+    //   const equation = document.getElementById('equation');
+    //   equation.insertAdjacentText('beforeend', value);
+    // }
+    //
+    // const numClick = function (value) {
+    //   if (isLastEventOperaration === true ) {
+    //     currentNumber = value;
+    //   } else {
+    //     if (currentNumber === '0') {
+    //       currentNumber = currentNumber.slice(0, -1) + value;
+    //     } else {
+    //       currentNumber += value;
+    //     }
+    //   }
+    //   isLastEventOperaration = false;
+    //   updateTotal();
+    // }
+    //
+    // const clearClick = function () {
+    //   currentNumber = '0';
+    //   updateTotal();
+    // }
+    //
+    // const backClick = function () {
+    //   if (currentNumber.length === 1) {
+    //     currentNumber = '0';
+    //   } else {
+    //     currentNumber = currentNumber.slice(0, -1);
+    //   }
+    //   updateTotal();
+    // }
+    //
+    // const operateClick = function (op) {
+    //   currentOperation = op;
+    //   isLastEventOperaration = true;
+    // }
 
   </script>
 
-  <script src="js/vendor/modernizr-3.11.2.min.js"></script>
-  <script src="js/plugins.js"></script>
-  <script src="js/calculator.js"></script>
+<script src="js/vendor/modernizr-3.11.2.min.js"></script>
+<script src="js/plugins.js"></script>
+<script src="js/calculator.js"></script>
 
 </body>
 
