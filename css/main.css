@@ -308,9 +308,19 @@ body {
 }
 
 .num {
+  background-color: #cccccc;
+}
 
+.dec {
+  /*rebecca purple because https://en.wikipedia.org/wiki/Eric_A._Meyer#Personal_life
+  I have three daughers and reasons
+  You don't have to like it... */
+  background-color: rebeccapurple;
+  color: white;
+  font-size: x-large;
+  line-height: 0;
 }
 
 .operator {
-
+  background-color: lightcoral;
 }
