@@ -1,10 +1,8 @@
-let currentNumber = '';
+let currentNumber = '0';
 let activeNumber = null;
-let secondNum = null;
 let currentOperation = null;
-let operation = null;
 let isOperating = false;
-let isOperatorEqual = false;
+let isEqualsPressed = false;
 
 
 const add = function (n1, n2) {
@@ -81,25 +79,54 @@ const numClick = function (number) {
     currentNumber += number;
   }
   updateDisplay(currentNumber);
+  console.log('Current operation is ' + currentOperation);
   isOperating = false;
 }
 
+const calculate = function () {
+  activeNumber = operate(currentOperation, activeNumber, currentNumber);
+  updateDisplay(activeNumber);
+  console.log(`Current operation in calculate is ` + currentOperation);
+}
+
+const equalClick = function () {
+  if (currentOperation !== null) {
+    isEqualsPressed = true;
+    // when pressing the equals button again and reapply the currentOperation & the currentNumber over and over against the resulting value (activeNumber)
+    console.log(`Active number in equal is ${activeNumber}`);
+    console.log(`Current operation before equals is ${currentOperation} ${currentNumber}`);
+    calculate();
+    console.log('Current operation in equalsClick after calculate is ' + currentOperation);
+    console.log(`Result of calculate is ${activeNumber}`);
+    console.log(`isEqualsPressed is ${isEqualsPressed}`);
+  }
+}
+
+// TODO: I broke this...
 
 const operateClick = function (operator) {
   // see if this is the first time through
   if (activeNumber === null) {
+    console.log(`Active number should be null and is ${activeNumber}`);
     currentOperation = operator;
+    console.log('Current operation is ' + currentOperation);
     activeNumber = currentNumber;
+    console.log(`Active number should be assigned and is ${activeNumber}`);
+    console.log(`isEqualsPressed is ${isEqualsPressed}`);
+  } else if (isEqualsPressed){
+    currentOperation = operator;
   } else {
-    if (operator === '=') {
-      isOperatorEqual = true;
-      activeNumber = operate(currentOperation, activeNumber, currentNumber);
-      updateDisplay(activeNumber);
-    } else if (isOperatorEqual) {
-      currentOperation = operator;
-    } else {
-      currentOperation = operator;
-    }
+    // if we have an operator loaded up we need to act upon that one
+    console.log(`Current operation before equals is ${currentOperation} ${currentNumber}`);
+    console.log(`Active number is ${activeNumber}`);
+    isEqualsPressed = false;
+    console.log(`isEqualsPressed is ${isEqualsPressed}`);
+    calculate();
+    console.log(`Active number is now ${activeNumber}`);
+    // then we need to store the new operator for the next time through
+    console.log('assigning new operator to currentOperator');
+    currentOperation = operator;
+    console.log('Current operation is ' + currentOperation);
   }
   isOperating = true;
 }
@@ -107,6 +134,8 @@ const operateClick = function (operator) {
 const clearClick = function () {
   currentNumber = '';
   activeNumber = null;
+  currentOperation = null;
+  console.clear();
   updateDisplay(0);
 }
 
