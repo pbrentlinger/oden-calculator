@@ -82,6 +82,16 @@ const numClick = function (number) {
   isOperating = false;
 }
 
+const toggleDec = function (){
+  const dec = document.getElementById('dec');
+  dec.toggleAttribute('disabled');
+}
+
+const decClick = function (point){
+  toggleDec();
+  numClick(point);
+}
+
 const calculate = function () {
   activeNumber = operate(currentOperation, activeNumber, currentNumber);
   updateDisplay(activeNumber);
@@ -92,6 +102,7 @@ const equalClick = function () {
     isEqualsPressed = true;
     // when pressing the equals button again and reapply the currentOperation & the currentNumber over and over against the resulting value (activeNumber)
     calculate();
+    toggleDec();
   }
 }
 
@@ -111,6 +122,7 @@ const operateClick = function (operator) {
     currentOperation = operator;
   }
   isOperating = true;
+  toggleDec();
 }
 
 const clearClick = function () {
