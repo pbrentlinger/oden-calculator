@@ -277,7 +277,7 @@ body {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-gap: 10px;
-  background-color: brown;
+  background-color: #222222;
   height: 100%;
   padding: 10px;
   border-radius: 5px;
@@ -307,8 +307,20 @@ body {
   grid-column-end: span 2;
 }
 
+button {
+  border: none;
+  padding: 5px;
+  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
+  transition: transform .15s;
+}
+
+button:active {
+  transform: scale(.96);
+}
+
 .num {
-  background-color: #cccccc;
+  background-color: #888888;
+  color: white;
 }
 
 .dec {
@@ -319,6 +331,10 @@ body {
   color: white;
   font-size: x-large;
   line-height: 0;
+}
+
+.dec:disabled {
+  opacity: .75;
 }
 
 .operator {
